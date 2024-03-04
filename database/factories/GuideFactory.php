@@ -3,12 +3,11 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Species;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Species>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Guide>
  */
-class SpeciesFactory extends Factory
+class GuideFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,13 +18,10 @@ class SpeciesFactory extends Factory
     {
         return [
             'title' => fake()->sentence,
+            'date_of_publish' => fake()->date,
             'description' => fake()->paragraph,
-            'origin' => fake()->country,
-            'habitat' =>fake()->sentence,
-            'sighting_year' => fake()->date,
-            'risk_level' => fake()->numerify,
+            'guide_url' => fake()->url,
             'species_image' => fake()->imageUrl,
-
         ];
     }
 }
