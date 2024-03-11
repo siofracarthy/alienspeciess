@@ -13,6 +13,9 @@ class SpeciesSeeder extends Seeder
      */
     public function run(): void
     {
-        Species::factory(10)->create();
+        Species::factory()
+        ->times(3)
+        ->hasGuides(3)
+        ->create();
     }
 }

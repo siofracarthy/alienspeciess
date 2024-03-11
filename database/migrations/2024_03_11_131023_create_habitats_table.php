@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('guides', function (Blueprint $table) {
+        Schema::create('habitats', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->date('date_of_publish');
             $table->text('description');
-            $table->string('guide_url');
+            $table->string('climate');
+            $table->string('terrain');
+            $table->string('flora');
+            $table->string('fauna');
             $table->string('species_image');
             $table->timestamps();
         });
@@ -27,16 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('guides');
+        Schema::dropIfExists('habitats');
     }
 };
-
-// public function down()
-// {
-//     Schema::table('guides', function (Blueprint $table){
-
-//         $table->dropForeign(['species_id']);
-//         $table->dropColumn('species_id')
-//     });
-
-// }

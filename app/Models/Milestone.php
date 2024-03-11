@@ -5,21 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Guide extends Model
+class Milestone extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'title',
-        'date_of_publish',
         'description',
-        'guide_url',
-        'image',
-        'species_id'
+        'user_id'
+
     ];
-
-
-    public function species(){
-        return $this->belongsTo(Species::class);
-    }
 }

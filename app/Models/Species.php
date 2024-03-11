@@ -19,4 +19,14 @@ class Species extends Model
         'species_image'
 
     ];
+
+    public function guides()
+    {
+        return $this->hasMany(Guide::class);
+    }
+
+    public function habitats()
+    {
+        return $this->belongsToMany(Habitat::class)->withTimestamps();
+    }
 }
