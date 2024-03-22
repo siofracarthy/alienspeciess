@@ -12,7 +12,12 @@ class Milestone extends Model
     protected $fillable = [
         'title',
         'description',
+        'level',
         'user_id'
-
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

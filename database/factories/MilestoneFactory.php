@@ -2,23 +2,29 @@
 
 namespace Database\Factories;
 
+use App\Models\Milestone;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Milestone>
- */
 class MilestoneFactory extends Factory
 {
     /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Milestone::class;
+
+    /**
      * Define the model's default state.
      *
-     * @return array<string, mixed>
+     * @return array
      */
-    public function definition(): array
+    public function definition()
     {
         return [
-            'title' => fake()->sentence,
-            'description' => fake()->paragraph,
+            'title' => $this->faker->sentence,
+            'description' => $this->faker->paragraph,
+            'level' => $this->faker->randomNumber(),
         ];
     }
 }

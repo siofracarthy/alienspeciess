@@ -13,7 +13,8 @@ class MilestoneController extends Controller
      */
     public function index()
     {
-        //
+        $milestones = Milestone::all();
+        return view('milestones.index', compact('milestones'));
     }
 
     /**

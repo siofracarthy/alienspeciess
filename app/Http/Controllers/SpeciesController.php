@@ -13,7 +13,9 @@ class SpeciesController extends Controller
      */
     public function index()
     {
-        //
+        $species = Species::all();
+        return view('species.index', compact('species'));
+
     }
 
     /**
@@ -37,7 +39,7 @@ class SpeciesController extends Controller
      */
     public function show(Species $species)
     {
-        //
+        return view('species.show');
     }
 
     /**
