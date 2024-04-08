@@ -43,16 +43,6 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function milestones()
-    {
-        return $this->hasMany(Milestone::class);
-    }
 
-
-    //for leaderboard
-    public function getRanking()
-    {
-        return $this->milestones()->count();
-    }
 
 }

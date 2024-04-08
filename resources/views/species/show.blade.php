@@ -28,8 +28,8 @@
                                 <td>{{ $species->description }}</td>
                             </tr>
                             <tr>
-                                <td class="font-bold ">Category </td>
-                                <td>{{ $species->category }}</td>
+                                <td class="font-bold ">Origin </td>
+                                <td>{{ $species->origin }}</td>
                             </tr>
                         </tbody>
                     </table>

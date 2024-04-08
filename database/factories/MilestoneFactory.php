@@ -21,10 +21,11 @@ class MilestoneFactory extends Factory
      */
     public function definition()
     {
-        return [
-            'title' => $this->faker->sentence,
-            'description' => $this->faker->paragraph,
-            'level' => $this->faker->randomNumber(),
-        ];
+        // return [
+        //     'title' => $this->faker->sentence,
+        //     'description' => $this->faker->paragraph,
+        //     'level' => $this->faker->randomNumber(),
+        // ];
     }
 }
+

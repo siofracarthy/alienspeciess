@@ -15,6 +15,5 @@ class DatabaseSeeder extends Seeder
 
         $this->call(SpeciesSeeder::class);
         $this->call(HabitatSeeder::class);
-        // $this->call(MilestoneSeeder::class);
     }
 }

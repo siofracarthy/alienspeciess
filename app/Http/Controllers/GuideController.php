@@ -13,7 +13,8 @@ class GuideController extends Controller
      */
     public function index()
     {
-        //
+        $guides = Guide::all();
+        return view('guides.index');
     }
 
     /**
@@ -21,7 +22,7 @@ class GuideController extends Controller
      */
     public function create()
     {
-        //
+        return view('guides.create');
     }
 
     /**
