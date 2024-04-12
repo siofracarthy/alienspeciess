@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreGuideRequest;
 use App\Http\Requests\UpdateGuideRequest;
 use App\Models\Guide;
+use Illuminate\Http\Request;
+
 
 class GuideController extends Controller
 {
@@ -13,8 +15,8 @@ class GuideController extends Controller
      */
     public function index()
     {
-        $guides = Guide::all();
-        return view('guides.index');
+        $guide = Guide::all();
+        return view('guides.index')->with('guide', $guide);
     }
 
     /**
@@ -22,13 +24,14 @@ class GuideController extends Controller
      */
     public function create()
     {
-        return view('guides.create');
+        $guide = Guide::all();
+        return view('guides.create')->with('guide', $guide);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreGuideRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -38,7 +41,7 @@ class GuideController extends Controller
      */
     public function show(Guide $guide)
     {
-        //
+        return view('guides.show')->with('guide', $guide);
     }
 
     /**

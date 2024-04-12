@@ -22,10 +22,11 @@ class SpeciesFactory extends Factory
             'description' => fake()->paragraph,
             'origin' => fake()->country,
             'habitat' =>fake()->sentence,
+            'lat' =>fake()->latitude,
+            'lng' =>fake()->longitude,
             'sighting_year' => fake()->date,
             'risk_level' => fake()->numerify,
             'species_image' => fake()->imageUrl,
-
         ];
     }
 }

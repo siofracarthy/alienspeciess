@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreMilestoneRequest;
 use App\Http\Requests\UpdateMilestoneRequest;
 use App\Models\Milestone;
+use Illuminate\Http\Request;
 
 class MilestoneController extends Controller
 {
@@ -28,7 +29,7 @@ class MilestoneController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreMilestoneRequest $request)
+    public function store(Request $request)
     {
         //
     }

@@ -18,6 +18,8 @@ return new class extends Migration
             $table->text('description');
             $table->string('origin');
             $table->string('habitat');
+            $table->decimal('lng', 10, 6);
+            $table->decimal('lat', 9, 6);
             $table->date('sighting_year');
             $table->integer('risk_level');
             $table->string('species_image');

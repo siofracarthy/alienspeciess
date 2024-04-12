@@ -14,7 +14,7 @@ class SpeciesSeeder extends Seeder
     public function run(): void
     {
         Species::factory()
-        ->times(3)
+        ->times(10)
         ->hasGuides(3)
         ->create();
     }

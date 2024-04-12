@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreHabitatRequest;
 use App\Http\Requests\UpdateHabitatRequest;
 use App\Models\Habitat;
+use Illuminate\Http\Request;
 
 class HabitatController extends Controller
 {
@@ -13,7 +14,9 @@ class HabitatController extends Controller
      */
     public function index()
     {
-        //
+
+        $habitats = Habitat::all();
+        return view ('habitats.index')->with('habitats', $habitats);
     }
 
     /**
@@ -27,7 +30,7 @@ class HabitatController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreHabitatRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -37,7 +40,9 @@ class HabitatController extends Controller
      */
     public function show(Habitat $habitat)
     {
-        //
+        $species = $habitat->species;
+
+        return view('habitats.show', compact('habitat', 'species'));
     }
 
     /**

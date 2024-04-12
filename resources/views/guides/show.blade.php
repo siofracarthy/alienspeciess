@@ -9,43 +9,38 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <div class="my-15 p-10 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
+                <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
                     <table class="table table-hover">
                         <tbody>
                             <tr>
-                                <td rowspan="12">
-                                    <div style="display: flex; justify-content: center;">
-                                        <!-- use the asset function, access the file $species->species_image in the folder storage/images -->
-                                        <img src="{{ asset($species->species_image) }}" alt="{{ $species->title }}" width="600">
-                                    </div>
+                                <td rowspan="6">
+                                    <!-- use the asset function, access the file $book->book_image in the folder storage/images -->
+                                    <img src="{{ asset($guide->guide_image) }}" alt="{{ $guide->title }}"
+                                        width="300">
                                 </td>
                             </tr>
-
-
+                            <tr>
                                 <td class="font-bold ">Title </td>
-                                <td>{{ $species->title }}</td>
+                                <td>{{ $guide->title }}</td>
                             </tr>
 
                             <tr>
                                 <td class="font-bold">Description </td>
-                                <td>{{ $species->description }}</td>
+                                <td>{{ $guide->description }}</td>
                             </tr>
                             <tr>
                                 <td class="font-bold ">Origin </td>
-                                <td>{{ $species->origin }}</td>
+                                <td>{{ $guide->origin }}</td>
                             </tr>
 
-                            <tr>
-                                <td class="font-bold ">Risk Level </td>
-                                <td>{{ $species->risk_level }}</td>
-                            </tr>
+
                         </tbody>
 
 
                     </table>
 
-                    <x-primary-button><a href="{{ route('species.edit', $species) }}">Edit</a> </x-primary-button>
-                    <form action="{{ route('species.destroy', $species) }}" method="post">
+                    <x-primary-button><a href="{{ route('guides.edit', $guide) }}">Edit</a> </x-primary-button>
+                    <form action="{{ route('guides.destroy', $guide) }}" method="post">
                         @method('delete')
                         @csrf
                         <x-primary-button

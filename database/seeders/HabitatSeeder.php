@@ -22,7 +22,7 @@ class HabitatSeeder extends Seeder
         foreach (Species::all() as $species) {
 
             $habitats = Habitat::inRandomOrder()->take(rand(1, 3))->pluck('id');
-            $species->habitats()->attach($habitats);
+            $species->habitat()->attach($habitats);
         }
     }
 }
