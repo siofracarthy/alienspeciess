@@ -15,7 +15,7 @@ class SpeciesSeeder extends Seeder
     {
         Species::factory()
         ->times(10)
-        ->hasGuides(3)
+        ->hasGuides(1)
         ->create();
     }
 }
