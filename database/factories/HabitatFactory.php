@@ -18,7 +18,7 @@ class HabitatFactory extends Factory
     {
         return [
             'title' => fake()->sentence,
-            'description' => fake()->paragraph,
+            'description' => fake()->paragraphs(10, true),
             'climate' => fake()->sentence,
             'terrain' =>fake()->sentence,
             'flora' => fake()->sentence,
