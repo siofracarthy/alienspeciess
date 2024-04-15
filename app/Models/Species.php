@@ -25,7 +25,7 @@ class Species extends Model
         return $this->hasMany(Guide::class);
     }
 
-    public function habitat()
+    public function habitats()
     {
         return $this->belongsToMany(Habitat::class)->withTimestamps();
     }
