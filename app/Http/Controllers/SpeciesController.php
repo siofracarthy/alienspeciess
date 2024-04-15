@@ -36,13 +36,12 @@ class SpeciesController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'description' => 'required|max:500',
+            'description' => 'required|max:3000',
             'origin' => 'required|max:20',
             'habitat' => 'required',
-            'sighting_year' => 'required|4',
-            'risk_level' => 'required|3',
+            'sighting_year' => 'required|digits:4',
+            'risk_level' => 'required|digits:3',
             'species_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-
         ]);
 
         // Handle image upload
@@ -65,8 +64,9 @@ class SpeciesController extends Controller
         ]);
 
         // Redirect to the index page with a success message
-        return to_route('species.index')->with('success', 'Species created successfully');
+        return redirect()->route('species.index')->with('success', 'Species created successfully');
     }
+
 
 
     /**
