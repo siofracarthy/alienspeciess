@@ -1,46 +1,39 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('All Companies') }}
+            {{ __('All Guides') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-            <!-- alert-success is a component I created to display a success message that may be sent from the controller.
-            For example, when a comapny is deleted, a message like "Company Deleted Successfully" will be displayed -->
-            <x-alert-success>
+            {{-- <x-alert-success>
                 {{ session('success') }}
-            </x-alert-success>
+            </x-alert-success> --}}
 
-            <x-primary-button>
-                <a href="{{ route('admin.companies.create') }}">Add a Company</a>
-            </x-primary-button>
+            <x-primary-button><a href="{{ route('guides.create') }}" class="btn-link btn-lg mb-2">Add a
+                    Guide</a></x-primary-button>
 
-            @forelse ($guides as $guide)
-                <x-card>
+                @forelse ($guides as $guide)
+                <div class="my-20 p-20 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
+                    <b class="font-bold text-2xl">
+                        <a href="{{ route('guides.show', $guide) }}"> {{ $guide->title }} </a>
+                    </b>
+                    <p class="desc-small">{{ $guide->description }}</p>
+                    @if ($guide->image)
+                    <img src="{{ asset($guide->image) }}" alt="{{ $guide->title }}" width="100">
+                @else
+                    No Image
+                @endif
 
-                        <a href="{{ route('admin.companies.show', $guide) }}" class="font-bold text-2xl">{{ $guide->title }}</a>
-{{--
-                        <p class="mt-2 text-gray-700">
-                            <span class="font-bold">ID:</span> {{ $guide->id }}
-                        </p>
-                        <p class="mt-2 text-gray-700">
-                            <span class="font-bold">Name:</span> {{ $guide->name }}
-                        </p>
-                        <p class="mt-2 text-gray-700">
-                            <span class="font-bold">Email:</span> {{ $guide->email }}
-                        </p>
-                        <p class="mt-2 text-gray-700">
-                            <span class="font-bold">Phone Number:</span> {{ $guide->phone_number }}
-                        </p> --}}
 
-                </x-card>
+                </div>
             @empty
-                <p>No Companies</p>
+                <p>No Species</p>
             @endforelse
 
         </div>
     </div>
 </x-app-layout>
+
