@@ -2,11 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Habitat;
 use App\Models\Species;
-
 
 class HabitatSeeder extends Seeder
 {
@@ -15,14 +13,17 @@ class HabitatSeeder extends Seeder
      */
     public function run(): void
     {
+        // Create habitats
         Habitat::factory()
             ->times(3)
             ->create();
 
+        // Attach habitats to species
         foreach (Species::all() as $species) {
-
+            // Get a random number of habitats (between 1 and 3) and attach them to the current species
             $habitats = Habitat::inRandomOrder()->take(rand(1, 3))->pluck('id');
-            $species->habitat()->attach($habitats);
+            $species->habitats()->attach($habitats);
         }
     }
 }
+
