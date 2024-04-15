@@ -21,7 +21,7 @@ class GuideFactory extends Factory
             'date_of_publish' => fake()->date,
                 // 'date_of_publish' => "08-02-1986",
 
-            'description' => fake()->paragraph,
+            'description' => fake()->paragraphs(10, true),
             'guide_url' => fake()->url,
             'species_image' => fake()->imageUrl,
         ];
