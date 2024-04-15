@@ -25,12 +25,23 @@
                             </tr>
 
                             <tr>
-                                <td class="font-bold">Description </td>
-                                <td>{{ $guide->description }}</td>
+                                <td class="font-bold"> Date Of Publish: </td>
+
+                                <td>{{ $guide->date_of_publish }}</td>
                             </tr>
                             <tr>
-                                <td class="font-bold ">Origin </td>
-                                <td>{{ $guide->origin }}</td>
+                                <td class="font-bold ">Description </td>
+                                <td>{{ $guide->description }}</td>
+                            </tr>
+
+                            <tr>
+                                <td class="font-bold ">Guide URL </td>
+                                <td>{{ $guide->guide_url }}</td>
+                            </tr>
+
+                            <tr>
+                                <td class="font-bold ">Species Id </td>
+                                <td>{{ $guide->species_id }}</td>
                             </tr>
 
 
