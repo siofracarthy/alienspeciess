@@ -15,8 +15,8 @@ class GuideController extends Controller
      */
     public function index()
     {
-        $guide = Guide::all();
-        return view('guides.index')->with('guide', $guide);
+        $guides = Guide::all();
+        return view('guides.index')->with('guides', $guides);
     }
 
     /**
@@ -24,8 +24,8 @@ class GuideController extends Controller
      */
     public function create()
     {
-        $guide = Guide::all();
-        return view('guides.create')->with('guide', $guide);
+        $guides = Guide::all();
+        return view('guides.create')->with('guide', $guides);
     }
 
     /**
@@ -43,6 +43,7 @@ class GuideController extends Controller
     {
         return view('guides.show')->with('guide', $guide);
     }
+
 
     /**
      * Show the form for editing the specified resource.
