@@ -5,11 +5,15 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Species;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Species>
- */
 class SpeciesFactory extends Factory
 {
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Species::class;
+
     /**
      * Define the model's default state.
      *
@@ -18,15 +22,16 @@ class SpeciesFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->sentence,
-            'description' => fake()->paragraph,
-            'origin' => fake()->country,
-            'habitat' =>fake()->sentence,
-            'lat' =>fake()->latitude,
-            'lng' =>fake()->longitude,
-            'sighting_year' => fake()->date,
-            'risk_level' => fake()->numerify,
-            'species_image' => fake()->imageUrl,
+            'title' => $this->faker->sentence,
+            'description' => $this->faker->paragraphs(30, true),
+            'origin' => $this->faker->country,
+            'habitat' => $this->faker->sentence,
+            'lat' => $this->faker->latitude,
+            'lng' => $this->faker->longitude,
+            'sighting_year' => $this->faker->date,
+            'risk_level' => $this->faker->numerify,
+            'species_image' => $this->faker->imageUrl,
         ];
     }
 }
+
