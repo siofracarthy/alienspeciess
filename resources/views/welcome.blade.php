@@ -37,7 +37,7 @@
                             <div class="card-header">Síofra's cinema.</div>
 
                             <div class="card-body">
-                                <p>
+                                <p class= "text-white">
                                     Welcome to the Alien ...
                                 </p>
                             </div>
