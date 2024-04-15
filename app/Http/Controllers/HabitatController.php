@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Requests\StoreHabitatRequest;
 use App\Http\Requests\UpdateHabitatRequest;
 use App\Models\Habitat;
+use App\Models\Species;
 use Illuminate\Http\Request;
 
 class HabitatController extends Controller

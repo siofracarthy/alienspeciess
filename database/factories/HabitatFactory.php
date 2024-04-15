@@ -17,10 +17,10 @@ class HabitatFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->sentence,
+            'title' => fake()->word,
             'description' => fake()->paragraphs(10, true),
-            'climate' => fake()->sentence,
-            'terrain' =>fake()->sentence,
+            'climate' => fake()->word,
+            'terrain' =>fake()->word,
             'flora' => fake()->sentence,
             'fauna' => fake()->sentence,
             'species_image' => fake()->imageUrl,

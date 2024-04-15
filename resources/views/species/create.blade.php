@@ -1,13 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
-        {{-- <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Create Species') }}
-        </h2> --}}
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        </h2>
     </x-slot>
 
     <div class="py-12">
         <h1 class="font-bold text-center text-black py-2" style="font-size: 1.9rem;">{{ __('Create Species') }}</h1>
+
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <hr class="border border-green-600 my-4"></hr>
             <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
                 <form action="{{ route('species.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
@@ -59,7 +60,9 @@
 
                     <x-primary-button class="mt-6">Save Film</x-primary-button>
                 </form>
+
             </div>
+            <hr class="border border-green-600 my-4"></hr>
         </div>
     </div>
 </x-app-layout>

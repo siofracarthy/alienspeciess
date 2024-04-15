@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SpeciesController;
 use App\Http\Controllers\GuideController;
+use App\Http\Controllers\HabitatController;
 use App\Http\Controllers\HomeController;
 
 
@@ -40,6 +41,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::resource('/species', SpeciesController::class)->only(['index', 'create', 'store', 'show', 'edit', 'destroy', 'update']);
     Route::resource('/guides', GuideController::class)->only(['index', 'create', 'store', 'show', 'edit', 'destroy', 'update']);
+    Route::resource('/habitats', HabitatController::class)->only(['index', 'create', 'store', 'show', 'edit', 'destroy', 'update']);
 
 });
 

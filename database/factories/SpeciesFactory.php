@@ -25,7 +25,7 @@ class SpeciesFactory extends Factory
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraphs(30, true),
             'origin' => $this->faker->country,
-            'habitat' => $this->faker->sentence,
+            'habitat' => $this->faker->word,
             'lat' => $this->faker->latitude,
             'lng' => $this->faker->longitude,
             'sighting_year' => $this->faker->date,
