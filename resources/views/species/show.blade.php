@@ -1,14 +1,14 @@
 <x-app-layout>
-    <x-slot name="header">
+    {{-- <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Dashboard
         </h2>
-    </x-slot>
+    </x-slot> --}}
 
     <!-- Page Content -->
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="my-15 p-10 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
                     <table class="table table-hover">
                         <tbody>
@@ -23,7 +23,7 @@
                             </tr>
                             <div class="seperation">
                                 <tr>
-                                    <td class="font-bold py-2" style="font-size: 1.9rem;">{{ $species->title }}</td>
+                                    <td class="font-bold py-3" style="font-size: 2.5rem;">{{ $species->title }}</td>
                                 </tr>
                                 <tr>
                                     <td class="font-bold" style="font-size: 1.2rem;">First Sighted:

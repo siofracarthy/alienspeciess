@@ -14,15 +14,13 @@ class HabitatSeeder extends Seeder
     public function run(): void
     {
         // Create habitats
-        Habitat::factory()
-            ->times(3)
-            ->create();
+        Habitat::factory(10)->create();
 
         // Attach habitats to species
         foreach (Species::all() as $species) {
             // Get a random number of habitats (between 1 and 3) and attach them to the current species
-            $habitats = Habitat::inRandomOrder()->take(rand(1, 3))->pluck('id');
-            $species->habitats()->attach($habitats);
+            $habitat = Habitat::inRandomOrder()->first();
+            $species->habitats()->attach($habitat);
         }
     }
 }

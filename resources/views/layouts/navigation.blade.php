@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-green-400 py-3 border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-green-600 py-3 border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -12,13 +12,13 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="rounded-md px-3 hover:bg-green-500 hover:text-white focus:outline-none" style="font-size: 1rem;">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="rounded-md px-3 text-white hover:text-green-900 focus:outline-none" style="font-size: 1.2rem;">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('species.index')" :active="request()->routeIs('species.index')" class="rounded-md px-3 hover:bg-green-500 hover:text-white focus:outline-none" style="font-size: 1rem;">
+                    <x-nav-link :href="route('species.index')" :active="request()->routeIs('species.index')" class="rounded-md px-3 text-white hover:text-white focus:outline-none" style="font-size: 1.2rem;">
                         {{ __('All Species') }}
                     </x-nav-link>
                 </div>
@@ -26,13 +26,13 @@
 
 
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('guides.index')" :active="request()->routeIs('guides.index')" class="rounded-md px-3 hover:bg-green-500 hover:text-white focus:outline-none" style="font-size: 1rem;">
+                        <x-nav-link :href="route('guides.index')" :active="request()->routeIs('guides.index')" class="rounded-md px-3 text-white hover:text-white focus:outline-none" style="font-size: 1.2rem;">
                             {{ __('All Guides') }}
                         </x-nav-link>
                     </div>
 
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('habitats.index')" :active="request()->routeIs('habitats.index')" class="rounded-md px-3 hover:bg-green-500 hover:text-white focus:outline-none" style="font-size: 1rem;">
+                        <x-nav-link :href="route('habitats.index')" :active="request()->routeIs('habitats.index')" class="rounded-md px-3  text-white hover:text-white focus:outline-none" style="font-size: 1.2rem;">
                             {{ __('All Habitats') }}
                         </x-nav-link>
                     </div>
@@ -43,7 +43,7 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
-                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-green-500 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-green-600 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                             @if (Auth::check())
                                 <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
                             @endif

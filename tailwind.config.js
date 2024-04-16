@@ -12,7 +12,7 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Jacquard 24', ...defaultTheme.fontFamily.sans],
             },
         },
     },
