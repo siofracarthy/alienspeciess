@@ -98,8 +98,8 @@ class SpeciesController extends Controller
             'description' => 'required|max:500',
             'origin' => 'required|max:20',
             'habitat' => 'required',
-            'sighting_year' => 'required|4',
-            'risk_level' => 'required|3',
+            'sighting_year' => 'required|digits:4',
+            'risk_level' => 'required|digits:3',
             'species_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
 
 
@@ -122,7 +122,9 @@ class SpeciesController extends Controller
             'risk_level' => $request->risk_level,
             'species_image' => $species_image_name,
         ]);
-        return to_route('species.show', $species)->with('success', 'Species updated successfully!');
+        // return to_route('species.show', $species)->with('success', 'Species updated successfully!');
+        return redirect()->route('species.show', $species)->with('success', 'Species updated successfully!');
+
     }
 
     /**

@@ -1,15 +1,18 @@
 <x-app-layout>
+
     <div class="py-12">
+
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <h1 class="font-bold text-center text-black py-2" style="font-size: 1.9rem;">{{ __('All Species') }}</h1>
-            <hr class="border border-green-600 my-6"></hr>
+
+            <h1 class="font-bold text-center text-black py-2" style="font-size: 2.9rem;">{{ __('All Species') }}</h1>
+
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-10 py-8">
                 @forelse ($species as $specie)
-                    <div class="bg-white py-9 px-5 border border-gray-200 shadow-sm rounded-lg flex">
+                    <div class="bg-white py-9 px-5 border border-gray-200 shadow-sm rounded-lg flex" style="border-radius: 8;">
                         <div class="flex-none ">
                             @if ($specie->species_image)
-                                <img src="{{ asset($specie->species_image) }}" alt="{{ $specie->title }}" width="220">
+                                <img src="{{ asset($specie->species_image) }}" alt="{{ $specie->title }}"style="border-radius: 5%;" width="220">
                             @else
                                 No Image
                             @endif
@@ -17,16 +20,19 @@
 
                         <div class="ml-4 flex-grow">
                             <b class="font-bold">
-                                <a href="{{ route('species.show', $specie) }}" style="font-size: 1.4rem;">{{ implode(' ', array_slice(explode(' ', $specie->title), 0, 3)) }} </a>
+                                <a href="{{ route('species.show', $specie) }}" style="font-size: 1.7rem;">{{ implode(' ', array_slice(explode(' ', $specie->title), 0, 3)) }} </a>
 
-                                <p class="font-bold" style="font-size: 1rem;">Habitat:
+                                <p class="font-bold text-decoration:underline" style="font-size: 1.2rem; text-decoration: underline;">Habitat:
                                     @if ($specie->habitats)
                                         @foreach ($specie->habitats as $habitat)
-                                            <a href="{{ route('habitats.show', $habitat->id) }}" style="font-size: 0.9rem;">{{ $habitat->title }}</a>
+                                            <a href="{{ route('habitats.show', $habitat->id) }}" style="font-size: 1.2rem;">{{ $habitat->title }}</a>
                                         @endforeach
                                     @else
                                         No relevent habitat found.
                                     @endif
+
+
+
                                 </p>
 
                             </b>
@@ -47,6 +53,11 @@
                     <a href="{{ route('species.create') }}" class="btn btn-link btn-lg px-5 py-2 rounded-lg !important" style="font-size: 0.9rem;">Add a Species</a>
                 </x-primary-button>
             </div>
+
+
+        </div>
+        <div class="dividers bg-green-800">
+            <div class="bg-green-600 max-w-7xl mx-auto sm:px-6 lg:px-8 py-8"></div>
         </div>
     </div>
 </x-app-layout>

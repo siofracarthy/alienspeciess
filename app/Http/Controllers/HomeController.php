@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Models\Species;
+use App\Models\Guide;
 
     class HomeController extends Controller
     {
@@ -21,9 +22,13 @@ use App\Models\Species;
          */
         public function index()
         {
-
             //In order from highest level of risk to lowest
-            $species = Species::orderByDesc('risk_level')->get();
-            return view('dashboard')->with('species', $species);
+            $species = Species::orderByDesc('risk_level')->take(4)->get();
+            $guides = Guide::orderByDesc('id')->take(6)->get();
+
+            return view('dashboard', [
+                'species' => $species,
+                'guides' => $guides,
+            ]);
         }
     }

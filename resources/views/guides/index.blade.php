@@ -16,11 +16,11 @@
                     Guide</a></x-primary-button> --}}
 
                 @forelse ($guides as $guide)
-                <div class="my-20 p-20 bg-green-600 border-b border-gray-200 shadow-sm sm:rounded-lg text-white">
-                    <b class="font-bold text-2xl">
-                        <a href="{{ route('guides.show', $guide) }}"> {{ $guide->title }} </a>
+                <div class="my-20 p-20 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg text-black">
+                    <b class="font-bold text-2xl my-2">
+                        <a href="{{ route('guides.show', $guide) }}"class="py-2" style="font-size: 2.2rem;"> {{ $guide->title }} </a>
                     </b>
-                    <p class="desc-small">{{ $guide->description }}</p>
+                    <p class="py-3">{{ $guide->description }}</p>
                     @if ($guide->image)
                     <img src="{{ asset($guide->image) }}" alt="{{ $guide->title }}" width="100">
                 @else

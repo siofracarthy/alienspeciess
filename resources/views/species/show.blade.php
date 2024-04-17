@@ -25,26 +25,8 @@
                                 <tr>
                                     <td class="font-bold py-3" style="font-size: 2.5rem;">{{ $species->title }}</td>
                                 </tr>
-                                <tr>
-                                    <td class="font-bold" style="font-size: 1.2rem;">First Sighted:
-                                        {{ $species->sighting_year }} </td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold text-red-500" style="font-size: 1.2rem;">Risk Level:
-                                        {{ $species->risk_level }} </td>
-                                </tr>
 
-
-                                <tr>
-                                    <td class="font-thin" style="font-size: 1.2rem;">
-                                        {!! nl2br(preg_replace('/\n{2,}/', "\n", e($species->description))) !!}
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="font-bold ">Origin: {{ $species->origin }} </td>
-                                </tr>
-                                <td class="font-bold">Habitat:
+                                <td class="font-bold" style="font-size: 1.2rem;">Habitat:
                                     @if ($species->habitats)
                                         @foreach ($species->habitats as $habitat)
                                             <a
@@ -54,6 +36,27 @@
                                         No relevent habitat found.
                                     @endif
                                 </td>
+
+                                <tr>
+                                    <td class="font-bold" style="font-size: 1.2rem;">First Sighted:
+                                        {{ $species->sighting_year }} </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold text-red-500" style="font-size: 1.2rem;">Risk Level:
+                                        {{ $species->risk_level }} </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="font-bold " style="font-size: 1.2rem;">Origin: {{ $species->origin }} </td>
+                                </tr>
+
+
+
+                                <tr>
+                                    <td class="font-thin" style="font-size: 1.2rem;">
+                                        {!! nl2br(preg_replace('/\n{2,}/', "\n", e($species->description))) !!}
+                                    </td>
+                                </tr>
 
                                 <tr>
                                     <td class="font-bold">Guide:
