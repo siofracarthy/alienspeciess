@@ -1,11 +1,25 @@
 <x-app-layout>
-    {{-- <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Dashboard
-        </h2>
-    </x-slot> --}}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
-    <!-- Page Content -->
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+        <style>
+            #map-container {
+                width: 80%;
+                margin: 0 auto;
+                padding-top: 10px;
+                padding-bottom  : 30px;
+                margin-bottom  : 50px;
+            }
+
+            #map {
+                height: 800px;
+            }
+        </style>
+
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden shadow-xl sm:rounded-lg">
@@ -70,6 +84,27 @@
                                         @endif
                                     </td>
                                 </tr>
+
+                                <td colspan="2">
+                                <div id="map-container">
+                                    <h1 class="map font-bold text-center py-4" style="font-size: 2.3rem;">Species' Locations Via Map</h1>
+                                    <div id="map"></div>
+                                    <script>
+                                        var map = L.map('map').setView([0, 0], 3);
+
+                                        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                            maxZoom: 19,
+                                            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                                        }).addTo(map);
+
+
+                                            L.marker([{{ $species->lat }}, {{ $species->lng }}]).addTo(map)
+                                            .bindPopup('{{ $species->title }}')
+                                                .openPopup();
+
+                                    </script>
+                                </div>
+                            </td>
                             </div>
                         </tbody>
 

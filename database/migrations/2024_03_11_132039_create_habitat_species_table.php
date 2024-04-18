@@ -16,8 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('habitat_id');
             $table->unsignedBigInteger('species_id');
 
-            $table->foreign('habitat_id')->references('id')->on('habitats')->onUpdate('cascade')->onDelete('restrict');
-            $table->foreign('species_id')->references('id')->on('species')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('habitat_id')->references('id')->on('habitats')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('species_id')->references('id')->on('species')->onUpdate('cascade')->onDelete('cascade');
 
 
             $table->timestamps();

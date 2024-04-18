@@ -8,44 +8,43 @@
     <!-- Page Content -->
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
+            <div class="overflow-hidden shadow-xl sm:rounded-lg">
+                <div class="my-15 p-10 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
                     <table class="table table-hover">
                         <tbody>
                             <tr>
-                                <td rowspan="6">
-                                    <!-- use the asset function, access the file $book->book_image in the folder storage/images -->
-                                    <img src="{{ asset($guide->guide_image) }}" alt="{{ $guide->title }}"
-                                        width="300">
+                                <td rowspan="1">
+                                    <div class="display: flex; justify-content: center;"
+                                        style="height: 600px; width: 1120px;">
+                                        <!-- use the asset function, access the file $species->species_image in the folder storage/images -->
+                                        <img src="{{ asset($guide->guide_image) }}" alt="{{ $guide->title }}"
+                                            style="height:100%; width:200%;">
+                                    </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="font-bold ">Title </td>
-                                <td>{{ $guide->title }}</td>
-                            </tr>
+                            <div class="seperation">
+                                <tr>
+                                    <td class="font-bold py-3" style="font-size: 2.5rem;">{{ $guide->title }}</td>
+                                </tr>
 
-                            <tr>
-                                <td class="font-bold"> Date Of Publish: </td>
+                                <tr>
+                                    <td class="font-bold" style="font-size: 1.2rem;">Published:
+                                        {{ $guide->date_of_publish }} </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-thin" style="font-size: 1.2rem;">
+                                        {!! nl2br(preg_replace('/\n{2,}/', "\n", e($guide->description))) !!}
+                                    </td>
+                                </tr>
 
-                                <td>{{ $guide->date_of_publish }}</td>
-                            </tr>
-                            <tr>
-                                <td class="font-bold ">Description </td>
-                                <td>{{ $guide->description }}</td>
-                            </tr>
+                                <tr>
 
-                            <tr>
-                                <td class="font-bold ">Guide URL </td>
-                                <td>{{ $guide->guide_url }}</td>
-                            </tr>
-
-                            <tr>
-                                <td class="font-bold ">Species Id </td>
-                                <td>{{ $guide->species_id }}</td>
-                            </tr>
-
-
+                                </tr>
+                            </div>
                         </tbody>
+
+
+                    </table>
 
 
                     </table>

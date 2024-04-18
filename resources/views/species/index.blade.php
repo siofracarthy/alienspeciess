@@ -59,5 +59,27 @@
         <div class="dividers bg-green-800">
             <div class="bg-green-600 max-w-7xl mx-auto sm:px-6 lg:px-8 py-8"></div>
         </div>
+        <footer class="bg-green-800 text-white py-5">
+            <div class="container-lg">
+                <div class="row">
+                    <div class="col-md-5">
+                        <h3 class="text-center">GREENVILLE DELI</h3>
+                        <!-- Add your footer content here -->
+                    </div>
+                    <div class="col-md-2">
+                        <h3>MENU</h3>
+                        <!-- Add your footer content here -->
+                    </div>
+                    <div class="col-md-2">
+                        <h3>SUPPORT</h3>
+                        <!-- Add your footer content here -->
+                    </div>
+                    <div class="col-md-2">
+                        <h3>CONTACT</h3>
+                        <!-- Add your footer content here -->
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 </x-app-layout>

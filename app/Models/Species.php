@@ -14,6 +14,8 @@ class Species extends Model
         'description',
         'origin',
         'habitat',
+        'lat',
+        'lng',
         'sighting_year',
         'risk_level',
         'species_image'

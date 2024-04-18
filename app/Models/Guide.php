@@ -14,7 +14,7 @@ class Guide extends Model
         'date_of_publish',
         'description',
         'guide_url',
-        'image',
+        'guide_image',
         'species_id'
     ];
 

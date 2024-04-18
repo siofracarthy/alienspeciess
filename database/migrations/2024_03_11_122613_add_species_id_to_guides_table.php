@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('guides', function (Blueprint $table) {
             $table->unsignedBigInteger('species_id');
-            $table->foreign('species_id')->references('id')->on('species')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('species_id')->references('id')->on('species')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -27,7 +27,4 @@ return new class extends Migration
             $table->dropColumn('species_id');
         });
     }
-
 };
-
-

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->date('date_of_publish');
             $table->text('description');
             $table->string('guide_url');
-            $table->string('species_image');
+            $table->string('guide_image');
             $table->timestamps();
         });
     }

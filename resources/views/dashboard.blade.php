@@ -1,4 +1,24 @@
 <x-app-layout>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <style>
+        #map-container {
+            width: 50%;
+            margin: 0 auto;
+            padding-top: 10px;
+            padding-bottom  : 30px;
+            margin-bottom  : 50px;
+        }
+
+        #map {
+            height: 1000px;
+        }
+    </style>
+
     <div class="bg-green-600 py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-8">
             <div class="text-black flex justify-between items-center">
@@ -16,8 +36,9 @@
                         species that aren't native to a country and are therefore </p>
 
                     <x-primary-button class="bg-green-700 hover:bg-green-800 my-8 rounded-lg py-3">
-                        <a href="{{ route('species.index') }}" class="btn btn-link btn-lg px-5 py-2 rounded-lg !important"
-                            style="font-size: 0.9rem;">View all Species</a>
+                        <a href="{{ route('species.index') }}"
+                            class="btn btn-link btn-lg px-5 py-2 rounded-lg !important" style="font-size: 0.9rem;">View
+                            all Species</a>
                     </x-primary-button>
                 </div>
 
@@ -132,8 +153,62 @@
     </div>
 
 
+
+
     <div class="dividers bg-green-800">
         <div class="bg-green-600 max-w-7xl mx-auto sm:px-6 lg:px-8 py-8"></div>
     </div>
+    <div id="map-container">
+        <h1 class="map font-bold text-center py-4" style="font-size: 2.3rem;">Species' Locations Via Map</h1>
+        <div id="map"></div>
+        <script>
+            var map = L.map('map').setView([0, 0], 3);
+
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+
+
+            @foreach ($species as $specie)
+                var marker = L.marker([{{ $specie->lat }}, {{ $specie->lng }}]).addTo(map);
+                marker.bindPopup('{{ $specie->title }}').openPopup();
+            @endforeach
+        </script>
+    </div>
+
+
+
+
+
+    <div class="dividers bg-green-800">
+        <div class="bg-green-600 max-w-7xl mx-auto sm:px-6 lg:px-8 py-8"></div>
+    </div>
+
+    <footer class="bg-green-800 text-white py-5">
+        <div class="container-lg">
+            <div class="row">
+                <div class="col-md-5">
+                    <h3 class="text-center">GREENVILLE DELI</h3>
+                    <!-- Add your footer content here -->
+                </div>
+                <div class="col-md-2">
+                    <h3>MENU</h3>
+                    <!-- Add your footer content here -->
+                </div>
+                <div class="col-md-2">
+                    <h3>SUPPORT</h3>
+                    <!-- Add your footer content here -->
+                </div>
+                <div class="col-md-2">
+                    <h3>CONTACT</h3>
+                    <!-- Add your footer content here -->
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+
+
 
 </x-app-layout>
