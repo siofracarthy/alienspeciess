@@ -15,19 +15,29 @@
             {{-- <x-primary-button><a href="{{ route('guides.create') }}" class="btn-link btn-lg mb-2">Add a
                     Guide</a></x-primary-button> --}}
 
-                @forelse ($guides as $guide)
+            @forelse ($guides as $guide)
                 <div class="my-20 p-20 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg text-black">
                     @if ($guide->guide_image)
-                    <img src="{{ asset($guide->guide_image) }}" alt="{{ $guide->title }}" width="100">
-                @else
-                    No Image
-                @endif
+                        <img src="{{ asset($guide->guide_image) }}" alt="{{ $guide->title }}" width="100">
+                    @else
+                        No Image
+                    @endif
                     <b class="font-bold text-2xl my-2">
-                        <a href="{{ route('guides.show', $guide) }}"class="py-2" style="font-size: 2.2rem;"> {{ $guide->title }} </a>
+                        <a href="{{ route('guides.show', $guide) }}" class="py-2" style="font-size: 2.2rem;">
+                            {{ $guide->title }}
+                        </a>
                     </b>
+
+                    <td class="font-bold" style="font-size: 1.2rem;">Habitat:
+                        @if ($guide->species && $guide->species->habitats)
+                            @foreach ($guide->species->habitats as $habitat)
+                                <a href="{{ route('habitats.show', $habitat->id) }}">{{ $habitat->title }}</a>
+                            @endforeach
+                        @else
+                            No relevant habitat found.
+                        @endif
+                    </td>
                     <p class="py-3">{{ $guide->description }}</p>
-
-
                 </div>
             @empty
                 <p>No Species</p>
@@ -36,4 +46,3 @@
         </div>
     </div>
 </x-app-layout>
-

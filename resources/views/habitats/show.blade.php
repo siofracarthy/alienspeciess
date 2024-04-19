@@ -26,7 +26,7 @@
                                 <td class="font-bold py-3" style="font-size: 2.5rem;">{{ $habitat->title }}</td>
                             </tr>
 
-                            <td class="font-bold" style="font-size: 1.2rem;">Habitat:
+                            <td class="font-bold" style="font-size: 1.2rem;">Species    :
                                 @if ($habitat->species)
                                     @foreach ($habitat->species as $specie)
                                         <a href="{{ route('species.show', $specie->id) }}">{{ $specie->title }}</a>

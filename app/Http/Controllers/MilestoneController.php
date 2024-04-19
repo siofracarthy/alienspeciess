@@ -2,20 +2,39 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreMilestoneRequest;
-use App\Http\Requests\UpdateMilestoneRequest;
 use App\Models\Milestone;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class MilestoneController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the milestones.
      */
     public function index()
     {
         $milestones = Milestone::all();
         return view('milestones.index', compact('milestones'));
+    }
+
+    /**
+     * Display a leaderboard of users.
+     */
+    public function leaderboard()
+    {
+        $users = User::orderBy('score', 'desc')->get();
+
+        // Assuming you already have $species and $guides data
+        return view('milestones.leaderboard', compact('users'));
+    }
+
+    /**
+     * Dashboard for milestone.
+     */
+    public function dashboard()
+    {
+        $users = User::orderByDesc('score')->get();
+        return view('dashboard', compact('users'));
     }
 
     /**
@@ -53,7 +72,7 @@ class MilestoneController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateMilestoneRequest $request, Milestone $milestone)
+    public function update(Request $request, Milestone $milestone)
     {
         //
     }

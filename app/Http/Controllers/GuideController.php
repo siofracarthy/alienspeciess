@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreGuideRequest;
 use App\Http\Requests\UpdateGuideRequest;
 use App\Models\Guide;
-use App\Models\Species;
 use Illuminate\Http\Request;
 
 
@@ -44,7 +43,7 @@ class GuideController extends Controller
     {
 
         $species = $guide->species;
-        return view('guides.show', compact('guide', 'species'));
+        return view('guides.show')->with('guide', $guide);
     }
 
 

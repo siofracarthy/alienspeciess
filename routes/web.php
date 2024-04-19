@@ -6,7 +6,7 @@ use App\Http\Controllers\SpeciesController;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\HabitatController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\MilestoneController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,31 +23,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::get('/dashboard', [HomeController::class, 'index'])
-->middleware(['auth', 'verified'])
-->name('dashboard');
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
-
-Route::middleware('auth')->group(function () {
     Route::resource('/species', SpeciesController::class)->only(['index', 'create', 'store', 'show', 'edit', 'destroy', 'update']);
     Route::resource('/guides', GuideController::class)->only(['index', 'create', 'store', 'show', 'edit', 'destroy', 'update']);
     Route::resource('/habitats', HabitatController::class)->only(['index', 'create', 'store', 'show', 'edit', 'destroy', 'update']);
 
+    Route::get('/milestone-dashboard', [MilestoneController::class, 'dashboard'])->name('milestone.dashboard');
+    Route::get('/milestone-leaderboard', [MilestoneController::class, 'leaderboard'])->name('milestone.leaderboard');
 });
 
-
-
-
-
-
 require __DIR__ . '/auth.php';
+

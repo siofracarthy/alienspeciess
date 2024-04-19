@@ -13,7 +13,6 @@ class Milestone extends Model
         'title',
         'description',
         'level',
-        'user_id'
     ];
 
     // public function user()
