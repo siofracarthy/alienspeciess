@@ -4,8 +4,11 @@
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-            <h1 class="font-bold text-center text-black py-2" style="font-size: 2.9rem;">{{ __('All Species') }}</h1>
+            <x-alert-success>
+                {{ session('success') }}
+            </x-alert-success>
 
+            <h1 class="font-bold text-center text-black py-2" style="font-size: 2.9rem;">{{ __('All Species') }}</h1>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-10 py-8">
                 @forelse ($species as $specie)
@@ -63,7 +66,7 @@
             <div class="container-lg">
                 <div class="row">
                     <div class="col-md-5">
-                        <h3 class="text-center">GREENVILLE DELI</h3>
+                        <h3 class="text-center">Invasive Alien Species</h3>
                         <!-- Add your footer content here -->
                     </div>
                     <div class="col-md-2">

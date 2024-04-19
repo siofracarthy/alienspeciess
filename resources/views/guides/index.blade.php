@@ -21,8 +21,8 @@
                         <a href="{{ route('guides.show', $guide) }}"class="py-2" style="font-size: 2.2rem;"> {{ $guide->title }} </a>
                     </b>
                     <p class="py-3">{{ $guide->description }}</p>
-                    @if ($guide->image)
-                    <img src="{{ asset($guide->image) }}" alt="{{ $guide->title }}" width="100">
+                    @if ($guide->guide_image)
+                    <img src="{{ asset($guide->guide_image) }}" alt="{{ $guide->title }}" width="100">
                 @else
                     No Image
                 @endif

@@ -36,38 +36,86 @@
                     <x-text-input type="text" name="title" field="title" placeholder="Title.."
                         style="margin-bottom: 20px;" class="w-full" autocomplete="off" :value="@old('title')"></x-text-input>
 
+                    @error('title')
+                        <div class="text-red-500 mt-2">{{ $message }}</div>
+                    @enderror
+
                     <!-- I created a new component called textarea, you will need to do the same to using the x-textarea component -->
                     <h1 class="font-bold text-black p-2" style="font-size: 1rem;">{{ __('Description:') }}</h1>
                     <x-textarea name="description" rows="10" field="description" placeholder="Description.."
                         style="margin-bottom: 20px;" class="w-full mt-2" :value="@old('description')">
                     </x-textarea>
 
+                    @error('description')
+                        <div class="text-red-500 mt-2">{{ $message }}</div>
+                    @enderror
+
                     <h1 class="font-bold text-black p-2" style="font-size: 1rem;">{{ __('Origin:') }}</h1>
                     <x-text-input type="text" name="origin" field="origin" placeholder="Origin.."
                         style="margin-bottom: 20px;" class="w-full" autocomplete="off" :value="@old('origin')"></x-text-input>
 
-                    <h1 class="font-bold text-black p-2" style="font-size: 1rem;">{{ __('Habitat:') }}</h1>
-                    <x-text-input type="text" name="habitat" field="habitat" placeholder="Habitat.."
-                        style="margin-bottom: 20px;" class="w-full" autocomplete="off" :value="@old('habitat')"></x-text-input>
+                    @error('origin')
+                        <div class="text-red-500 mt-2">{{ $message }}</div>
+                    @enderror
 
-                    <h1 class="font-bold text-black p-2" style="font-size: 1rem;">{{ __('Sighting Year:') }}</h1>
+                    <h1 class="font-bold text-black p-2" style="font-size: 1rem;">{{ __('Habitat:') }}</h1>
+
+                    {{-- <x-text-input type="text" name="habitat" field="habitat" placeholder="Habitat.."
+                        style="margin-bottom: 20px;" class="w-full" autocomplete="off" :value="@old('habitat')"></x-text-input> --}}
+
+                        <div class="form-group">
+                            <label for="habitats"> <strong> Habitats: </strong> <br> </label>
+                            @foreach ($habitats as $habitat)
+                                <input type="checkbox" value="{{ $habitat->id }}" name="habitats[]">
+                                {{ $habitat->title }}
+                            @endforeach
+                        </div>
+
+                        @error('habitats')
+                            <div class="text-red-500 mt-2">{{ $message }}</div>
+                        @enderror
+
+
+                    <h1 class="font-bold text-black p-2" style="font-size: 1rem;">{{ __('Sighting Date:') }}</h1>
                     <x-text-input type="date" name="sighting_year" field="sighting_year"
                         placeholder="Sighting Year.." style="margin-bottom: 20px;" class="w-65" autocomplete="off"
                         :value="@old('sighting_year')"></x-text-input>
+
+                    @error('sighting_year')
+                        <div class="text-red-500 mt-2">{{ $message }}</div>
+                    @enderror
                     <h1 class="font-bold text-black p-2" style="font-size: 1rem;">{{ __('Risk Level:') }}</h1>
 
                     <x-text-input type="number" name="risk_level" field="risk_level" placeholder="Risk Level.."
                         style="margin-bottom: 20px;" class="w-65" autocomplete="off" :value="@old('risk_level')"></x-text-input>
 
-                    {{-- <x-text-input type="text" name="lng" field="lng" placeholder="lng.." class="w-full"
-                    autocomplete="off" :value="@old('lng')"></x-text-input> --}}
+                    @error('risk_level')
+                        <div class="text-red-500 mt-2">{{ $message }}</div>
+                    @enderror
+                    <h1 class="font-bold text-black p-2" style="font-size: 1rem;">{{ __('Latitude:') }}</h1>
+
+                    <x-text-input type="text" name="lat" id="latitude" field="lat" placeholder="Latitude.."
+                        style="margin-bottom: 20px;" class="w-65" autocomplete="off" :value="old('lat')"></x-text-input>
+
+                    @error('lat')
+                        <div class="text-red-500 mt-2">{{ $message }}</div>
+                    @enderror
+
+                    <h1 class="font-bold text-black p-2" style="font-size: 1rem;">{{ __('Longitude:') }}</h1>
+                    <x-text-input type="text" name="lng" id="longitude" field="lng" placeholder="Longitude.."
+                        style="margin-bottom: 20px;" class="w-65" autocomplete="off" :value="old('lng')"></x-text-input>
+
+                    @error('lng')
+                        <div class="text-red-500 mt-2">{{ $message }}</div>
+                    @enderror
 
                     <x-file-input type="file" name="species_image" placeholder="Species" style="margin-bottom: 20px;"
                         class="w-full mt-6" field="species_image" :value="@old('species_image')">>
                     </x-file-input>
 
-                    <div id="map" style="height: 400px;"></div>
 
+
+                    <div id="map" style="height: 400px;"></div>
                     <script>
                         document.addEventListener('DOMContentLoaded', function() {
                             var map = L.map('map').fitWorld();
@@ -102,22 +150,26 @@
                             }
 
                             map.on('locationerror', onLocationError);
+
+                            // Prevent form submission when clicking on the map
+                            map.on('click', function(e) {
+                                if (document.activeElement.tagName.toLowerCase() !== 'input') {
+                                    map.removeEventListener('locationfound',
+                                    onLocationFound); // Remove event listener temporarily
+                                    map.removeEventListener('locationerror', onLocationError);
+                                }
+                            });
                         });
                     </script>
+
 
                     {{-- <div class="mt-6">
                         <x-select-company name="company_id" :companies="$companies" :selected="old('company_id')" />
                     </div> --}}
 
-                    {{-- <div class="form-group">
-                        <label for="producers"> <strong> Producers </strong> <br> </label>
-                        @foreach ($producers as $producer)
-                            <input type="checkbox", value="{{ $producer->id }}" name="producers[]">
-                            {{ $producer->first_name }}
-                        @endforeach
-                    </div> --}}
-
-                    <x-primary-button class="mt-6">Save Film</x-primary-button>
+                    <div class="text-center">
+                        <x-primary-button class="mt-6">Save Film</x-primary-button>
+                    </div>
                 </form>
 
             </div>

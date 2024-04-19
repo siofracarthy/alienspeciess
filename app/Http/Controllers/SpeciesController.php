@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreSpeciesRequest;
 use App\Http\Requests\UpdateSpeciesRequest;
 use App\Models\Species;
+use App\Models\Habitat;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -25,8 +26,10 @@ class SpeciesController extends Controller
      */
     public function create()
     {
+
         $species = Species::all();
-        return view('species.create')->with('species', $species);
+        $habitats = Habitat::all();
+        return view('species.create', compact('species', 'habitats'));
     }
 
     /**
@@ -36,13 +39,13 @@ class SpeciesController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'description' => 'required|max:3000',
+            'description' => 'required|max:3500',
             'origin' => 'required|max:20',
             'habitat' => 'required',
-            'lat' => 'required',
-            'lng' => 'required',
-            'sighting_year' => 'required|digits:4',
-            'risk_level' => 'required|digits:3',
+            'lat' => 'required|numeric',
+            'lng' => 'required|numeric',
+            'sighting_year' => 'required|date_format:Y-m-d',
+            'risk_level' => 'required|numeric|between:1,10',
             'species_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -94,22 +97,19 @@ class SpeciesController extends Controller
      */
     public function update(Request $request, Species $species)
     {
-        // $user = Auth::user();
-        // $user->authorizeRoles('admin');
-
         $request->validate([
             'title' => 'required',
-            'description' => 'required|max:500',
+            'description' => 'required|max:3500',
             'origin' => 'required|max:20',
             'habitat' => 'required',
-            'lat' => 'required',
-            'lng' => 'required',
-            'sighting_year' => 'required|digits:4',
-            'risk_level' => 'required|digits:3',
-            'species_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-
-
+            'lat' => 'required|numeric',
+            'lng' => 'required|numeric',
+            'sighting_year' => 'required|date_format:Y-m-d',
+            'risk_level' => 'required|numeric|between:1,10',
+            'species_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
+        $species_image_name = $species->species_image; // Default to current image
 
         if ($request->hasFile('species_image')) {
             $image = $request->file('species_image');
@@ -130,17 +130,17 @@ class SpeciesController extends Controller
             'risk_level' => $request->risk_level,
             'species_image' => $species_image_name,
         ]);
-        return to_route('species.show', $species)->with('success', 'Species updated successfully!');
-        // return redirect()->route('species.show', $species)->with('success', 'Species updated successfully!');
 
+        return redirect()->route('species.show', $species)->with('success', 'Species updated successfully!');
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Species $species)
     {
-            $species->delete();
-            return to_route('species.index')->with('success', 'Species deleted successfully');
+        $species->delete();
+        return to_route('species.index')->with('success', 'Species deleted successfully');
     }
 }

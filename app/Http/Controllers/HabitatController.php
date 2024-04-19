@@ -24,7 +24,8 @@ class HabitatController extends Controller
      */
     public function create()
     {
-        //
+        $habitats = Habitat::all();
+        return view('create', ['habitats' => $habitats]);
     }
 
     /**

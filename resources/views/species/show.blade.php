@@ -22,6 +22,11 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+            <x-alert-success>
+                {{session('success') }}
+            </x-alert-success>
+
             <div class="overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="my-15 p-10 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
                     <table class="table table-hover">
@@ -110,6 +115,7 @@
 
 
                     </table>
+
                     <x-primary-button><a href="{{ route('species.edit', $species) }}">Edit</a> </x-primary-button>
                     <form action="{{ route('species.destroy', $species) }}" method="post">
                         @method('delete')

@@ -23,7 +23,7 @@ class SpeciesFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence,
-            'description' => $this->faker->paragraphs(30, true),
+            'description' => $this->faker->paragraphs(18, true),
             'origin' => $this->faker->country,
             'habitat' => $this->faker->word,
             'lat' => $this->faker->latitude,
