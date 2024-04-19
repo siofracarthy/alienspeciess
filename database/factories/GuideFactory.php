@@ -19,7 +19,7 @@ class GuideFactory extends Factory
         return [
             'title' => fake()->sentence,
             'date_of_publish' => fake()->date,
-            'description' => fake()->paragraphs(10, true),
+            'description' => fake()->paragraphs(20, true),
             'guide_url' => fake()->url,
             'guide_image' => fake()->imageUrl,
         ];

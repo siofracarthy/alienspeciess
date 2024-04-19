@@ -1,6 +1,6 @@
 <nav x-data="{ open: false }" class="bg-green-700 py-3 border-b border-gray-100">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-14 sm:px-14 lg:px-15">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
@@ -21,7 +21,7 @@
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('species.index')" :active="request()->routeIs('species.index')"
-                        class="rounded-md px-3 text-white hover:text-white focus:outline-none"
+                        class="rounded-md px-7 text-white hover:text-white focus:outline-none"
                         style="font-size: 1.2rem;">
                         {{ __('All Species') }}
                     </x-nav-link>
@@ -31,7 +31,7 @@
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('guides.index')" :active="request()->routeIs('guides.index')"
-                        class="rounded-md px-3 text-white hover:text-white focus:outline-none"
+                        class="rounded-md px-7 text-white hover:text-white focus:outline-none"
                         style="font-size: 1.2rem;">
                         {{ __('All Guides') }}
                     </x-nav-link>
@@ -39,14 +39,14 @@
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('habitats.index')" :active="request()->routeIs('habitats.index')"
-                        class="rounded-md px-3  text-white hover:text-white focus:outline-none"
+                        class="rounded-md px-7  text-white hover:text-white focus:outline-none"
                         style="font-size: 1.2rem;">
                         {{ __('All Habitats') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('milestone.leaderboard')" :active="request()->routeIs('milestone.leaderboard')"
-                        class="rounded-md px-3 text-white hover:text-white focus:outline-none"
+                        class="rounded-md px-7 text-white hover:text-white focus:outline-none"
                         style="font-size: 1.2rem;">
                         {{ __('Leaderboard') }}
                     </x-nav-link>
@@ -54,11 +54,11 @@
                 </div>
 
                 <!-- Settings Dropdown -->
-                <div class="hidden sm:flex sm:items-center sm:ml-6">
+                <div class="hidden sm:flex sm:items-center sm:ml-14">
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button
-                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-green-700 hover:bg-green-800 hover:text-white focus:outline-none transition ease-in-out duration-150">
+                                class="inline-flex items-center px-9 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-green-700 hover:bg-green-800 hover:text-white focus:outline-none transition ease-in-out duration-150">
                                 @if (Auth::check())
                                     <div class="font-medium text-base text-white hover:bg-green-800">
                                         {{ Auth::user()->name }}</div>

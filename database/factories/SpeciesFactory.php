@@ -29,7 +29,7 @@ class SpeciesFactory extends Factory
             'lat' => $this->faker->latitude,
             'lng' => $this->faker->longitude,
             'sighting_year' => $this->faker->date,
-            'risk_level' => $this->faker->numerify,
+            'risk_level' => $this->faker->numberBetween(1, 10),
             'species_image' => $this->faker->imageUrl,
         ];
     }

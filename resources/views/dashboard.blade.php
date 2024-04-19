@@ -26,18 +26,11 @@
                     <h1 class="font-bold text-white pt-5 my-5 " style="font-size: 4.9rem;">
                         {{ __('Invasive Alien Species') }}</h1>
 
-                    <p class="text-white py-5" style="font-size: 1.3rem;">Invasive alien species are species that aren't
-                        native to a country and are therefore treacherous to the native species. Invasive alien species
-                        are
-                        species that aren't native to a country and are therefore Invasive alien species are species
-                        that aren't
-                        native to a country and are therefore treacherous to the native species. Invasive alien species
-                        are
-                        species that aren't native to a country and are therefore </p>
+                    <p class="text-white py-5" style="font-size: 1.3rem;">An invasive alien species refers to a plant, animal, or microorganism that is introduced to a new environment and causes harm to native species, ecosystems, or human activities. They often outcompete native species for resources, disrupt ecosystems, and can have negative economic and ecological impacts.</p>
 
                     <x-primary-button class="bg-green-700 hover:bg-green-800 my-8 rounded-lg py-3">
-                        <a href="{{ route('species.index') }}"
-                            class="btn btn-link btn-lg px-5 py-2 rounded-lg !important" style="font-size: 0.9rem;">View
+                        <a href="{{ route('species.index') }}" class="btn btn-link btn-lg px-5 py-2 rounded-lg"
+                            style="font-size: 0.9rem;">View
                             all Species</a>
                     </x-primary-button>
                 </div>
@@ -79,6 +72,7 @@
                                 <p class="font-thin" style="font-size: 1rem;">
                                     {{ implode(' ', array_slice(explode(' ', $specie->description), 0, 25)) }}
                                 </p>
+
                             </div>
                         </div>
                     @empty
@@ -105,8 +99,8 @@
                 @forelse ($guides as $guide)
                     <div class="bg-white py-9 px-5 border border-green-600 shadow-sm rounded-lg flex">
                         <div class="flex-none" style="height: 200px; width: 200px;">
-                            @if ($specie->species_image)
-                                <img src="{{ asset($specie->species_image) }}" alt="{{ $specie->title }}"
+                            @if ($guide->guide_image)
+                                <img src="{{ asset($guide->guide_image) }}" alt="{{ $guide->title }}"
                                     style="border-radius: 50%; height: 100%; width: 200%;">
                             @else
                                 No Image
@@ -115,21 +109,9 @@
 
                         <div class="ml-4 flex-grow">
                             <b class="font-bold">
-                                <a href="{{ route('species.show', $guide) }}" class="text-green-00"
+                                <a href="{{ route('guides.show', $guide) }}" class="text-green-00"
                                     style="font-size: 1.7rem;">{{ implode(' ', array_slice(explode(' ', $guide->title), 0, 3)) }}
                                 </a>
-
-                                {{-- <p class="font-bold" style="font-size: 1rem;">Species:
-                                    @if ($guide->species)
-                                        @foreach ($guide->species as $specie)
-                                            <a href="{{ route('species.show', $specie->id) }}"
-                                                style="font-size: 0.9rem;">{{ $specie->title }}</a>
-                                        @endforeach
-                                    @else
-                                        No relevent species found.
-                                    @endif
-                                </p> --}}
-
                             </b>
                             <p class="mt-2">
                             <h3 class="font-bold text-1x1">
@@ -140,13 +122,14 @@
                         </div>
                     </div>
                 @empty
-                    <p class="text-center">No Species</p>
+                    {{-- <p class="text-center">No Species</p> --}}
                 @endforelse
+
             </div>
         </div>
         <div class="flex justify-center py-4">
             <x-primary-button class="bg-green-600 hover:bg-green-800 my-6 rounded-lg">
-                <a href="{{ route('guides.index') }}" class="btn btn-link btn-lg px-5 py-3 rounded-lg !important"
+                <a href="{{ route('guides.index') }}" class="btn btn-link btn-lg px-5 py-3 rounded-lg"
                     style="font-size: 0.9rem;">View All Guides</a>
             </x-primary-button>
         </div>
@@ -159,10 +142,10 @@
         <div class="bg-green-600 max-w-7xl mx-auto sm:px-6 lg:px-8 py-8"></div>
     </div>
     <div id="map-container">
-        <h1 class="map font-bold text-center py-4" style="font-size: 2.3rem;">Species' Locations Via Map</h1>
+        <h1 class="map font-bold text-center py-4" style="font-size: 2.3rem;">Species Locations Via Map</h1>
         <div id="map"></div>
         <script>
-            var map = L.map('map').setView([0, 0], 3);
+            var map = L.map('map').setView([0, 0], 2);
 
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
@@ -184,31 +167,49 @@
     <div class="dividers bg-green-800">
         <div class="bg-green-600 max-w-7xl mx-auto sm:px-6 lg:px-8 py-8"></div>
     </div>
-
     <footer class="bg-green-800 text-white py-12">
-        <div class="container-fluid">
-            <div class="row justify-content-start text-center">
-                <h3>Invasive Alien Species</h3>
-                <div class="col-md-5 text-center">
-                    <a href="{{ route('species.index') }}" class="btn btn-link btn-lg px-5 py-2 rounded-lg mt-3"
-                        style="font-size: 0.9rem;">View all Species</a>
-                </div>
-                {{-- Uncomment and add your footer content here --}}
-                {{-- <div class="col-md-2">
-                    <h3>MENU</h3>
-                    <!-- Add your footer content here -->
-                </div> --}}
-                {{-- <div class="col-md-2">
-                    <h3>SUPPORT</h3>
-                    <!-- Add your footer content here -->
-                </div> --}}
-                {{-- <div class="col-md-2">
-                    <h3>CONTACT</h3>
-                    <!-- Add your footer content here -->
-                </div> --}}
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-8 flex flex-col lg:flex-row items-start">
+            <div class="lg:mr-12">
+                <h3 class="font-bold text-center lg:text-left" style="font-size: 2rem;">Invasive Alien Species</h3>
+                <p class="font-thin max-w-xl text-center lg:text-left">
+                    An invasive alien species refers to a plant, animal, or microorganism that is introduced to a new
+                    environment and causes harm to native species, ecosystems, or human activities. They often
+                    outcompete
+                    native species for resources, disrupt ecosystems, and can have negative economic and ecological
+                    impacts.
+                </p>
             </div>
+            <ul class="flex flex-col py-4 mx-4">
+                <h3 class="text-center text-bold" style="font-size: 1.3rem;">Quick Links:</h3>
+                <li class="text-thin py-1">
+                    <a href="{{ route('species.index') }}" class="btn btn-link btn-lg px-5 py-2 rounded-lg mt-3"
+                        style="font-size: 0.9rem;">View All Species</a>
+                </li>
+
+                <li class="text-thin  py-1">
+                    <a href="{{ route('guides.index') }}" class="btn btn-link btn-lg px-5 py-2 rounded-lg mt-3"
+                        style="font-size: 0.9rem;">View All Guides</a>
+                </li>
+
+                <li class="text-thin  py-1">
+                    <a href="{{ route('habitats.index') }}" class="btn btn-link btn-lg px-5 py-2 rounded-lg mt-3"
+                        style="font-size: 0.9rem;">View All Habitats</a>
+                </li>
+
+                <li class="text-thin  py-1">
+                    <a href="{{ route('milestone.leaderboard') }}"
+                        class="btn btn-link btn-lg px-5 py-2 rounded-lg mt-3" style="font-size: 0.9rem;">View
+                        Leaderboard</a>
+                </li>
+
+                <li class="text-thin  py-1">
+                    <a href="{{ route('profile.edit') }}" class="btn btn-link btn-lg px-5 py-2 rounded-lg mt-3"
+                        style="font-size: 0.9rem;">View Profile</a>
+                </li>
+            </ul>
         </div>
     </footer>
+
 
     </div>
 

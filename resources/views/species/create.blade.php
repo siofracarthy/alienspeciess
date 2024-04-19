@@ -18,10 +18,10 @@
             width: 10;
         }
     </style>
-    <x-slot name="header">
+    {{-- <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
         </h2>
-    </x-slot>
+    </x-slot> --}}
 
     <div class="py-12">
         <h1 class="font-bold text-center text-black py-2" style="font-size: 1.9rem;">{{ __('Create Species') }}</h1>
@@ -63,7 +63,7 @@
                     <x-text-input type="text" name="habitat" field="habitat" placeholder="Habitat.."
                         style="margin-bottom: 20px;" class="w-full" autocomplete="off" :value="@old('habitat')"></x-text-input>
 
-                        {{-- <div class="form-group">
+                    {{-- <div class="form-group">
                             <label for="habitats"> <strong> Habitats: </strong> <br> </label>
                             @foreach ($habitats as $habitat)
                                 <input type="checkbox" value="{{ $habitat->id }}" name="habitats[]">
@@ -71,9 +71,9 @@
                             @endforeach
                         </div> --}}
 
-                        @error('habitats')
-                            <div class="text-red-500 mt-2">{{ $message }}</div>
-                        @enderror
+                    @error('habitats')
+                        <div class="text-red-500 mt-2">{{ $message }}</div>
+                    @enderror
 
 
                     <h1 class="font-bold text-black p-2" style="font-size: 1rem;">{{ __('Sighting Date:') }}</h1>
@@ -155,7 +155,7 @@
                             map.on('click', function(e) {
                                 if (document.activeElement.tagName.toLowerCase() !== 'input') {
                                     map.removeEventListener('locationfound',
-                                    onLocationFound); // Remove event listener temporarily
+                                        onLocationFound); // Remove event listener temporarily
                                     map.removeEventListener('locationerror', onLocationError);
                                 }
                             });
@@ -176,5 +176,32 @@
             <hr class="border border-green-600 my-4">
             </hr>
         </div>
+
     </div>
+    <div class="dividers bg-green-800">
+        <div class="bg-green-600 max-w-7xl mx-auto sm:px-6 lg:px-8 py-8"></div>
+    </div>
+    <footer class="bg-green-800 text-white py-12">
+        <div class="container-lg">
+            <div class="row">
+                <div class="col-md-5">
+                    <h3 class="text-center">Invasive Alien Species</h3>
+                    <!-- Add your footer content here -->
+                </div>
+                <div class="col-md-2">
+                    {{-- <h3>MENU</h3> --}}
+                    <!-- Add your footer content here -->
+                </div>
+                <div class="col-md-2">
+                    {{-- <h3>SUPPORT</h3> --}}
+                    <!-- Add your footer content here -->
+                </div>
+                <div class="col-md-2">
+                    {{-- <h3>CONTACT</h3> --}}
+                    <!-- Add your footer content here -->
+                </div>
+            </div>
+        </div>
+    </footer>
+
 </x-app-layout>
