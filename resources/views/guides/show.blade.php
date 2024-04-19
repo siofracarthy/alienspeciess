@@ -23,12 +23,12 @@
                                 <tr>
                                     <td class="font-bold py-3" style="font-size: 2.5rem;">{{ $guide->title }}</td>
                                 </tr>
-                                <td class="font-bold" style="font-size: 1.2rem;">Date Of Publish:
                                 <tr>
-                                    <td class="font-bold py-3" style="font-size: 1rem;">{{ $guide->date_of_publish }}</td>
+                                    <td class="font-bold" style="font-size: 1.2rem;">Publish Date:
+                                        {{ $guide->date_of_publish }} </td>
                                 </tr>
 
-                                {{-- <td class="font-bold" style="font-size: 1.2rem;">Habitat:
+                                <td class="font-bold" style="font-size: 1.2rem;">Habitat:
                                     @if ($species->habitats)
                                         @foreach ($species->habitats as $habitat)
                                             <a
@@ -37,7 +37,7 @@
                                     @else
                                         No relevent habitat found.
                                     @endif
-                                </td> --}}
+                                </td>
 
 
                                 <tr>

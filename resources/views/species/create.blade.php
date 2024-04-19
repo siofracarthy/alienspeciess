@@ -60,16 +60,16 @@
 
                     <h1 class="font-bold text-black p-2" style="font-size: 1rem;">{{ __('Habitat:') }}</h1>
 
-                    {{-- <x-text-input type="text" name="habitat" field="habitat" placeholder="Habitat.."
-                        style="margin-bottom: 20px;" class="w-full" autocomplete="off" :value="@old('habitat')"></x-text-input> --}}
+                    <x-text-input type="text" name="habitat" field="habitat" placeholder="Habitat.."
+                        style="margin-bottom: 20px;" class="w-full" autocomplete="off" :value="@old('habitat')"></x-text-input>
 
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="habitats"> <strong> Habitats: </strong> <br> </label>
                             @foreach ($habitats as $habitat)
                                 <input type="checkbox" value="{{ $habitat->id }}" name="habitats[]">
                                 {{ $habitat->title }}
                             @endforeach
-                        </div>
+                        </div> --}}
 
                         @error('habitats')
                             <div class="text-red-500 mt-2">{{ $message }}</div>

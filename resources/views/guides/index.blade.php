@@ -17,15 +17,15 @@
 
                 @forelse ($guides as $guide)
                 <div class="my-20 p-20 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg text-black">
-                    <b class="font-bold text-2xl my-2">
-                        <a href="{{ route('guides.show', $guide) }}"class="py-2" style="font-size: 2.2rem;"> {{ $guide->title }} </a>
-                    </b>
-                    <p class="py-3">{{ $guide->description }}</p>
                     @if ($guide->guide_image)
                     <img src="{{ asset($guide->guide_image) }}" alt="{{ $guide->title }}" width="100">
                 @else
                     No Image
                 @endif
+                    <b class="font-bold text-2xl my-2">
+                        <a href="{{ route('guides.show', $guide) }}"class="py-2" style="font-size: 2.2rem;"> {{ $guide->title }} </a>
+                    </b>
+                    <p class="py-3">{{ $guide->description }}</p>
 
 
                 </div>

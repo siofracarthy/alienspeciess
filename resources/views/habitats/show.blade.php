@@ -14,19 +14,34 @@
                         <tbody>
                             <tr>
                                 <td rowspan="1">
-                                    <!-- use the asset function, access the file $book->book_image in the folder storage/images -->
-                                    <img src="{{ asset($habitat->species_image) }}" alt="{{ $habitat->title }}"
-                                        width="600">
+                                    <div class="display: flex; justify-content: center;"
+                                        style="height: 600px; width: 1120px;">
+                                        <!-- use the asset function, access the file $species->species_image in the folder storage/images -->
+                                        <img src="{{ asset($habitat->species_image) }}" alt="{{ $habitat->title }}"
+                                            style="height:100%; width:200%;">
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="font-bold py-5 ">Title: </td>
-                                <td> {{ $habitat->title }}</td>
+                                <td class="font-bold py-3" style="font-size: 2.5rem;">{{ $habitat->title }}</td>
                             </tr>
 
+                            <td class="font-bold" style="font-size: 1.2rem;">Habitat:
+                                @if ($habitat->species)
+                                    @foreach ($habitat->species as $specie)
+                                        <a href="{{ route('species.show', $specie->id) }}">{{ $specie->title }}</a>
+                                    @endforeach
+                                @else
+                                    No relevent habitat found.
+                                @endif
+                            </td>
+
+
+
                             <tr>
-                                <td class="font-bold py-5 ">Description </td>
-                                <td>{{ $habitat->description }}</td>
+                                <td class="font-thin" style="font-size: 1.2rem;">
+                                    {!! nl2br(preg_replace('/\n{2,}/', "\n", e($habitat->description))) !!}
+                                </td>
                             </tr>
                         </tbody>
                     </table>

@@ -10,8 +10,8 @@
             width: 50%;
             margin: 0 auto;
             padding-top: 10px;
-            padding-bottom  : 30px;
-            margin-bottom  : 50px;
+            padding-bottom: 30px;
+            margin-bottom: 50px;
         }
 
         #map {
@@ -185,28 +185,31 @@
         <div class="bg-green-600 max-w-7xl mx-auto sm:px-6 lg:px-8 py-8"></div>
     </div>
 
-    <footer class="bg-green-800 text-white py-5">
-        <div class="container-lg">
-            <div class="row">
-                <div class="col-md-5">
-                    <h3 class="text-center">GREENVILLE DELI</h3>
-                    <!-- Add your footer content here -->
+    <footer class="bg-green-800 text-white py-12">
+        <div class="container-fluid">
+            <div class="row justify-content-start text-center">
+                <h3>Invasive Alien Species</h3>
+                <div class="col-md-5 text-center">
+                    <a href="{{ route('species.index') }}" class="btn btn-link btn-lg px-5 py-2 rounded-lg mt-3"
+                        style="font-size: 0.9rem;">View all Species</a>
                 </div>
-                <div class="col-md-2">
+                {{-- Uncomment and add your footer content here --}}
+                {{-- <div class="col-md-2">
                     <h3>MENU</h3>
                     <!-- Add your footer content here -->
-                </div>
-                <div class="col-md-2">
+                </div> --}}
+                {{-- <div class="col-md-2">
                     <h3>SUPPORT</h3>
                     <!-- Add your footer content here -->
-                </div>
-                <div class="col-md-2">
+                </div> --}}
+                {{-- <div class="col-md-2">
                     <h3>CONTACT</h3>
                     <!-- Add your footer content here -->
-                </div>
+                </div> --}}
             </div>
         </div>
     </footer>
+
     </div>
 
 

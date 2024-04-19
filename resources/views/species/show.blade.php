@@ -92,7 +92,7 @@
 
                                 <td colspan="2">
                                 <div id="map-container">
-                                    <h1 class="map font-bold text-center py-4" style="font-size: 2.3rem;">Species' Locations Via Map</h1>
+                                    <h1 class="map font-bold text-center py-4" style="font-size: 2.3rem;">Species Locations Via Map</h1>
                                     <div id="map"></div>
                                     <script>
                                         var map = L.map('map').setView([0, 0], 3);

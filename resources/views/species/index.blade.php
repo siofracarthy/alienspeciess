@@ -10,6 +10,7 @@
 
             <h1 class="font-bold text-center text-black py-2" style="font-size: 2.9rem;">{{ __('All Species') }}</h1>
 
+
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-10 py-8">
                 @forelse ($species as $specie)
                     <div class="bg-white py-9 px-5 border border-gray-200 shadow-sm rounded-lg flex" style="border-radius: 8;">
@@ -70,15 +71,15 @@
                         <!-- Add your footer content here -->
                     </div>
                     <div class="col-md-2">
-                        <h3>MENU</h3>
+                        {{-- <h3>MENU</h3> --}}
                         <!-- Add your footer content here -->
                     </div>
                     <div class="col-md-2">
-                        <h3>SUPPORT</h3>
+                        {{-- <h3>SUPPORT</h3> --}}
                         <!-- Add your footer content here -->
                     </div>
                     <div class="col-md-2">
-                        <h3>CONTACT</h3>
+                        {{-- <h3>CONTACT</h3> --}}
                         <!-- Add your footer content here -->
                     </div>
                 </div>

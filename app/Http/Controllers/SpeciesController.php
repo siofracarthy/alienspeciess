@@ -70,6 +70,15 @@ class SpeciesController extends Controller
             'species_image' => $species_image_name
         ]);
 
+        // Increment 'score' for the authenticated user
+        if (Auth::check()) { // Check if user is logged in
+            $user = Auth::user();
+            if ($user instanceof \App\Models\User) { // Check if $user is an instance of User model
+                $user->score += 1; // Increment score by 1 for each new species
+                $user->save();
+            }
+        }
+
         // Redirect to the index page with a success message
         return to_route('species.index')->with('success', 'Species created successfully');
     }
